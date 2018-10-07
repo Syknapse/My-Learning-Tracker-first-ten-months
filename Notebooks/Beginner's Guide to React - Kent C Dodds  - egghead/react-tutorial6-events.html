@@ -1,0 +1,55 @@
+<html>
+<body>
+    <div id="root"></div>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+
+    const state = {eventCount: 0, username: ''}
+
+    function App() {
+        return (
+            <div>
+                <p>
+                    Number of events: {state.eventCount}
+                </p>
+                <p>
+                    <button onClick={increment}>Trigger</button>
+                </p>
+                <p>You Typed: {state.username}</p>
+                <p>
+                    <input onChange={updateUsername}/>
+                </p>
+            </div>
+        )
+    }
+
+    function increment() {
+        setState({
+            eventCount: state.eventCount + 1,
+        })
+    }
+
+    function updateUsername(event) {
+        setState({
+            username: event.target.value,
+        })
+    }
+
+    function setState(newState) {
+        Object.assign(state, newState)
+        renderApp()
+    }
+
+    function renderApp() {
+        ReactDOM.render(
+            <App />,
+            document.getElementById('root'),
+        )
+    }
+    renderApp()
+
+    </script>
+</body>
+</html>

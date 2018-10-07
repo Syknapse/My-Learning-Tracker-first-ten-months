@@ -1,0 +1,72 @@
+<html>
+<body>
+    <div id="root"></div>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+
+    // Render {message} or 'no message' if none exist 1
+    /* function Message({message}) {
+        if (!message) {
+            return <div>No Message</div>
+        }
+        return <div>{message}</div>
+    } */
+
+    // Render {message} or 'no message' if none exist 2 using react create element
+    /* function Message({message}) {
+        if (!message) {
+            return React.createElement('div', null, 'no message')
+        }
+        return React.createElement('div', null, message)
+    } */
+
+    // Render {message} or 'no message' if none exist 3 using ternary operator
+    /* function Message({message}) {
+        return message
+            ? React.createElement('div', null, message)
+            : React.createElement('div', null, 'no message')
+    } */
+
+    // Render {message} or 'no message' if none exist 4 wrap it in a div using JS interpolation
+    /* function Message({message}) {
+        return (
+            <div>
+                {message
+                    ? React.createElement(
+                        'div',
+                        null,
+                        message,
+                    )
+                    :  React.createElement(
+                        'div',
+                        null,
+                        ' no message',
+
+                    )
+                }
+            </div>
+        )
+    } */
+
+    // Render {message} or 'no message' if none exist 5 refactor in JSX
+    function Message({message}) {
+        return (
+            <div>
+                {message
+                    ? (<div>{message}</div>)
+                    : (<div>no message</div>)
+                }
+            </div>
+        )
+    }
+
+    ReactDOM.render(
+        <Message message='Hello World' />, // {null}
+        document.getElementById('root'),
+    )
+
+    </script>
+</body>
+</html>

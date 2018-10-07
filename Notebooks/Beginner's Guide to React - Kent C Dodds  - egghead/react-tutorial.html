@@ -1,0 +1,42 @@
+<div id="root"></div>
+<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<script type="text/babel">
+const rootElement = document.getElementById('root')
+// ** This is without react ** //
+// const element = document.createElement('div')
+// element.textContent = 'Hello World'
+// element.className = 'container'
+// rootElement.appendChild(element)
+
+
+// ** This is without JSX ** //
+/* const element = React.createElement('div', {
+    className: 'container',
+    children: 'Hello World',
+}) */
+
+// ** This is with JSX ** //
+// const element = <div className="container">Hello World</div>
+
+// ** This is using a variable for the content and className ** //
+// const content = 'hello world'
+// const myClassName = 'container'
+// const element = <div className={myClassName + '-item1'}>{content}</div>
+// ^^ this will produce <div class="container-item1">hello world</div>
+
+// ** This is using a props object and a react self-closing element ** //
+const content = 'hello world'
+const myClassName = 'container'
+const props = {
+    className: 'container',
+    children: 'Hello World',
+}
+const element = (
+    <div {...props} />
+)
+
+ReactDOM.render(element, rootElement)
+
+</script>

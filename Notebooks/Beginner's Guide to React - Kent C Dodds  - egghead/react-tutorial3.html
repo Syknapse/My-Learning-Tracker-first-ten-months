@@ -1,0 +1,60 @@
+<html>
+<body>
+    <div id="root"></div>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/prop-types/prop-types.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+
+    function SayHello(props) {
+        return (
+            <div>
+                Hello {props.firstName}{' '}
+                {props.lastName || 'Unknown'}!
+            </div>
+        )
+    }
+
+    // propType implementation to check for the correct property type
+    // you don't need this if you are using the React PropType Package
+    /* const PropTypes = {
+        string(props, propName, componentName) {
+            if (typeof props[propName] !== 'string') {
+                return new Error(`You should pass a string for ${propName} in ${componentName}, instead you passed type ${typeof props[propName]}`)
+            }
+        }
+    } */
+
+    SayHello.propTypes = {
+        firstName: PropTypes.string.isRequired,
+        lastName: PropTypes.string.isRequired,
+    }
+
+    ////////////////////
+    // using as class instead of as function
+    class SayHello extends React.Component {
+        static propTypes = {
+            firstName: PropTypes.string.isRequired,
+            lastName: PropTypes.string.isRequired,
+        }
+        render() {
+            const {firstName, lastName} = this.props
+            return (
+                <div>
+                    Hello {firstName} {lastName}!
+                </div>
+            )
+        }
+    }
+
+
+
+    ReactDOM.render(
+        <SayHello firstName={true} />,
+        document.getElementById('root')
+    )
+
+    </script>
+</body>
+</html>

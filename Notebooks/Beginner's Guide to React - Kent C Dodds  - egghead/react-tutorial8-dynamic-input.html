@@ -1,0 +1,67 @@
+<html>
+<body>
+    <div id="root"></div>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+
+    class NameForm extends React.Component {
+        state = {error: this.props.getErrorMessage('')}
+        handleSubmit = event => {
+            event.preventDefault()
+            const value =
+                event.target.elements.username.value
+            const error = this.props.getErrorMessage(
+                value,
+            )
+            if (error) {
+                alert(`error: ${error}`)
+            } else {
+                alert(`success: ${value}`)
+            }
+        }
+        handleChange = event => {
+            const {value} = event.target
+            this.setState({
+                error: this.props.getErrorMessage(value),
+            })
+        }
+        render() {
+            const {error} = this.state
+            return (
+                <form>
+                    <label>
+                        Secret Word:
+                        <input
+                            type="text"
+                            onChange={this.handleChange}
+                            name="username"
+                        />
+                    </label>
+                    <br />
+                    {error ? <div style={{color: 'red'}}>{error}</div> : null}
+                    <button disabled={Boolean(error)} type="submit">Submit</button>
+                </form>
+            )
+        }
+    }
+
+    ReactDOM.render(
+        <NameForm
+            getErrorMessage={value => {
+                if (value.length < 10) {
+                    return `10 characters minimum`
+                }
+                if (!value.includes('s')) {
+                    return `Must include "s"`
+                }
+                return null
+            }}
+        />,
+        document.getElementById('root')
+    )
+
+    </script>
+</body>
+</html>

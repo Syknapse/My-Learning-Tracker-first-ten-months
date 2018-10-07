@@ -1,0 +1,56 @@
+<div id="root"></div>
+<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<script type="text/babel">
+
+const rootElement = document.getElementById('root')
+
+// A simple component
+/* const helloWorld = <div>hello world</div>
+const element = (
+    <div className="container">
+        {helloWorld}
+        {helloWorld}
+    </div>
+) */
+
+// using a function to parameterise
+/* const message = props => <div>{props.msg}</div>
+const element = (
+    <div className="container">
+        {message({msg: 'Hello World'})}
+        {message({msg: 'Goodbye World'})}
+    </div>
+) */
+
+// using JSX
+/* const message = props => <div>{props.msg}</div>
+const element = (
+    <div className="container">
+        {React.createElement(message, {msg: 'Hello World'})}
+        {React.createElement(message, {msg: 'Goodbye World'})}
+    </div>
+) */
+
+// using JSX components (with capital first letter)
+/* const Message = props => <div>{props.msg}</div>
+const element = (
+    <div className="container">
+        <Message msg='Hello World' />
+        <Message msg='Goodbye World' />
+    </div>
+) */
+
+// using `children`
+const Message = props => <div>{props.children}</div>
+const element = (
+    <div className="container">
+        <Message>Hello World</Message>
+        <Message>Goodbye World</Message>
+    </div>
+)
+
+ReactDOM.render(element, rootElement)
+
+</script>
