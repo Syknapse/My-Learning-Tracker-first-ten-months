@@ -67,7 +67,7 @@ A complete log of my web development skills, learning, resources, highlights, in
 | ![Soon][Soon]               |          | Read [Eloquent JavaScript]                                      | [Marijn Haverbeke]                          |
 | ![Soon][Soon]               |          | Read JavaScript: The Good Parts                                 | Douglas Crockford                           |
 | ![Soon][Soon]               |          | Read [You Don't know JavaScript]                                | Kyle Simpson                                |
-| ![Soon][Soon]               |          | [Learn CSS Grid]                                                | [Per Harald Borgen] - [Scrimba]             |
+| ![Soon][Soon]               |          | [Learn CSS Grid]                                                | [Per Harald Borgen] - [Scrimba] - [WesBos Css Grid](https://cssgrid.io/)             |
 | ![Soon][Soon]               |          | [The Web Developer Bootcamp - Back End]                         | Colt Steele - [Udemy]                       |
 
 [//]: # (Reference links to courses)
